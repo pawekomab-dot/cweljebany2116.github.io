@@ -1,4 +1,4 @@
-lvar selector = document.querySelector(".selector_box");
+var selector = document.querySelector(".selector_box");
 selector.addEventListener("click", () => {
   if (selector.classList.contains("selector_open")) {
     selector.classList.remove("selector_open");
