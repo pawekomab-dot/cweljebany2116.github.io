@@ -59,12 +59,16 @@ imageInput.addEventListener("change", (event) => {
   })
     .then((result) => result.json())
     .then((response) => {
-      var url = response.data.link;
-      upload.classList.remove("error_shown");
-      upload.setAttribute("selected", url);
-      upload.classList.add("upload_loaded");
-      upload.classList.remove("upload_loading");
-      upload.querySelector(".upload_uploaded").src = url;
+    if (response && response.data && response.data.link) {
+        var url = response.data.link;
+        upload.classList.remove("error_shown");
+        upload.setAttribute("selected", url);
+        upload.classList.add("upload_loaded");
+    } else {
+        alert("Imgur cię blokuje. Poczekaj godzinę!");
+        location.reload();
+    }
+
     });
 });
 
