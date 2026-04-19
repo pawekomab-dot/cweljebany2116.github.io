@@ -58,8 +58,17 @@ imageInput.addEventListener("change", (event) => {
     body: data,
   })
     .then((result) => result.json())
-    .then((response) => {
-      var url = response.data.link;
+        .then((response) => {
+        if (response && response.data && response.data.link) {
+            var url = response.data.link;
+            upload.classList.remove("upload_loading");
+            upload.setAttribute("selected", url);
+            upload.classList.add("upload_loaded");
+        } else {
+            alert("Imgur cię blokuje (błąd 429). Zmień internet na telefon!");
+            location.reload();
+        }
+
       upload.classList.remove("error_shown");
       upload.setAttribute("selected", url);
       upload.classList.add("upload_loaded");
