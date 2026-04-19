@@ -1,4 +1,4 @@
-var selector = document.querySelector(".selector_box");
+lvar selector = document.querySelector(".selector_box");
 selector.addEventListener("click", () => {
   if (selector.classList.contains("selector_open")) {
     selector.classList.remove("selector_open");
@@ -53,7 +53,7 @@ imageInput.addEventListener("change", (event) => {
   fetch("	https://api.imgur.com/3/image", {
     method: "POST",
     headers: {
-      Authorization: "Client-ID e4d98a899c8c946",
+      Authorization: "Client-ID 546c3639596838b",
     },
     body: data,
   })
